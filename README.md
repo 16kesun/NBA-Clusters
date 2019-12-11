@@ -2,7 +2,7 @@
 Clustering 2018-2019 NBA player into modern roles
 ddd
 
-# Get Data
+## Get Data
 I used selenium webdriver to scrape various tables from NBA.com. These tables include Hustle, Post, Cut, Pull-up, Catch-Shoot, and Possession
 
 Hustle: These stats describe a players effort level. Includes deflections, contested shots, loose balls recovered.
@@ -11,10 +11,10 @@ Post, Cut, Pull-up, Catch-Shoot: These four categories represent different ways 
 
 Possession: These stats describe what a player does with the ball. Stats include average dribbles per touch, time of possession, touches in the paint, touches near the elbow
 
-# Data Cleaning
+## Data Cleaning
 I filled in missing values with zeros and made numeric all the necessary stats. Some columns also had "%" in them so I removed the "%" and converted them into decimal values. Next I had to differentiate between certain post, cut, pull-up and catch-shoot stats that had the same column names. Lastly I dropped columns that appeared in all the tables (except for player name, which I will use to join my tables) such as games played and team, and joined the tables into one.
 
-# EDA
+## EDA
 I built a heatmap to inspect which of my feaatures are highly correlated with one another.
 
 I looked at barplots with teams on the x-axis to determine how successful and unsuccessful teams play the game differently. For example, Golden State (highly successful) has the lowest average time of possession, while Dallas (unsucessful) has the highest average time of possesion. 
@@ -23,7 +23,7 @@ I also looked at scatterplots to determine if relationships exist between certai
 
 Lastly I looked at the age distribution of the league and looked at how age affects player performance on certain stats.
 
-# Clustering
+## Clustering
 I used K-means clustering to group the players into new roles. I looked at an elbow plot to find the optimal amount of clusters, but it indicated two, which would not help accomplish my goal of defining modern player roles. So using domain knowledge I was able to group the players into 9 different roles, which I labeled Inside/Outside, Elite Ball Handler, Solid Big, Go-to Scorer, Bench Inside, Bench Perimeter, Shooter, High Effort, and Benchwarmer.
 
 Inside/Outside: Players who are comfortable with scoring close to the rim as well as far away (Aaron Gordon, Andrew Wiggins, Brandon Ingram).
@@ -42,7 +42,7 @@ High Effort: Players who average high effort metrics such as deflections and con
 
 Benchwarmer: Players who barely play over ten minutes per game and average a low number of starts. Lowest performing group for the majority of features (Jimmer Ferdette, Greg Monroe, Ryan Anderson).
 
-# Cluster Analysis
+## Cluster Analysis
 First I created a bar chart showing the performance of my clusters when it comes to standard stats (Points, Assists, Rebounds, Blocks, Steals, Three pointers).
 
 I also made radar charts for each cluster using time of possession, cut points, pull-up points, catch-shoot points, and post points to look at the scoring tendencies of the groups. By examining these figures I was able to conclude that big man play was being phased out of the league. Looking at the Bench Inside cluster, we can see that these players tend to favor the catch-shoot method of scoring. In fact, the traditional weapons for big men (cutting and posting) tend to be the least popular method accross all clusters, while catch-shoot (indicative of perimeter play) is the most popular method.
